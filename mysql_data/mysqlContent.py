@@ -43,7 +43,7 @@ class SQL():
 
     def selectall(self,tablename=None):
         # 查询需要更新dzi的图片
-        sql_countAll = "select id,file_url,deepzoom,dzi_time from %s where deepzoom = NULL or deepzoom = '' or dzi_time < update_time;" % tablename
+        sql_countAll = "SELECT id,file_url,deepzoom,dzi_time FROM %s WHERE deepzoom IS NULL OR deepzoom = '' OR dzi_time < update_time;" % tablename
         self.cursor.execute(sql_countAll)
         json_data = self.sql_fetch_json()
         return json_data
